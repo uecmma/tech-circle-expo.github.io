@@ -1,0 +1,64 @@
+---
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8' />
+        <meta name='description' content='Astro description' />
+        <meta name='viewport' content='width=device-width' />
+        <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+        <meta name='generator' content={Astro.generator} />
+        <title>{title}</title>
+        <link
+            href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'
+            rel='stylesheet'
+        />
+    </head>
+    <body class='d-flex flex-column min-vh-100'>
+        <header class='bg-dark text-white py-3'><Navbar /></header>
+        <main class='container my-5 flex-grow-1'><slot /></main>
+        <Footer />
+    </body>
+</html>
+<style is:global>
+    html {
+        font-family: 'Roboto', sans-serif;
+        background: #f4f4f9;
+        color: #333;
+    }
+    header {
+        background-color: #282c34;
+        color: white;
+        padding: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: fit-content;
+        margin: 1em auto;
+        border-radius: 20px;
+    }
+    nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        transition: color 0.3s;
+    }
+    nav a:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+</style>

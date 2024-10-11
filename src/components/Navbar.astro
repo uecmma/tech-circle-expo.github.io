@@ -1,0 +1,19 @@
+---
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/events", label: "Events" },
+  { href: "/university", label: "University" },
+  { href: "/contact", label: "Contact" },
+];
+---
+
+<nav class="container d-flex justify-content-center">
+  <ul class="nav nav-pills">
+    {links.map(link => (
+      <li class="nav-item">
+        <a class="nav-link text-white" href={link.href}>{link.label}</a>
+      </li>
+    ))}
+  </ul>
+</nav>
